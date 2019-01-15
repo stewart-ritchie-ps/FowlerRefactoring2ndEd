@@ -1,2 +1,2 @@
 # FowlerRefactoring2ndEd
-Chapter 1 example in C#
+C# language starting point example from Chapter 1 of Refactoring (2nd ed.), Martin Fowler et al.
