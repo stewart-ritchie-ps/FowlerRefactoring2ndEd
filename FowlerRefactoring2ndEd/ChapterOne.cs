@@ -15,7 +15,7 @@ namespace FowlerRefactoring2ndEd
             var volumeCredits = 0;
             var result = $"Statement for {invoice.Customer}\r\n";
 
-            string Format(int value) => value.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"));
+            Func<int, string> format = value => value.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"));
 
             foreach (var perf in invoice.Performances)
             {
@@ -50,11 +50,11 @@ namespace FowlerRefactoring2ndEd
                 if ("comedy" == play.Type) volumeCredits += (int)Math.Floor((decimal)perf.Audience / 5);
 
                 // print line for this order
-                result += $"  {play.Name}: {Format(thisAmount / 100)} ({perf.Audience} seats)\r\n";
+                result += $"  {play.Name}: {format(thisAmount / 100)} ({perf.Audience} seats)\r\n";
                 totalAmount += thisAmount;
             }
 
-            result += $"Amount owed is {Format(totalAmount / 100)}\r\n";
+            result += $"Amount owed is {format(totalAmount / 100)}\r\n";
             result += $"You earned {volumeCredits} credits\r\n";
 
             return result;
