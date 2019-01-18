@@ -9,7 +9,7 @@ namespace FowlerRefactoring2ndEd
     [Trait("Chapter", "1. One")]
     public class The_starting_point
     {
-        public string Invoice(dynamic invoice, dynamic plays)
+        public string Statement(dynamic invoice, dynamic plays)
         {
             var totalAmount = 0;
             var volumeCredits = 0;
@@ -60,10 +60,10 @@ namespace FowlerRefactoring2ndEd
             return result;
         }
 
-        [Fact(DisplayName = nameof(The_starting_point) + " > " + nameof(BigCo_invoice))]
-        public void BigCo_invoice()
+        [Fact(DisplayName = nameof(The_starting_point) + " > " + nameof(BigCo_statement))]
+        public void BigCo_statement()
         {
-            Invoice(Invoices[0], Plays)
+            Statement(Invoices[0], Plays)
                 .Should()
                 .Be(@"Statement for BigCo
   Hamlet: $650.00 (55 seats)
